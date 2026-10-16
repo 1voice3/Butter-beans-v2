@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><title>Hazel's Bug Adventure</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><title>Butter bean v2</title>
 <style>
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{margin:0;height:100%;overflow:hidden;background:#bdf0ff;font-family:"Chalkboard SE","Comic Sans MS",system-ui,sans-serif;touch-action:manipulation}
 body{background:radial-gradient(circle at 30% 20%,#fff9c4,#bdf0ff 60%,#c8f7c5)}
@@ -38,7 +38,7 @@ function snd(f,d,type='sine',sl=0,v=.15,at=0){if(muted)return;AC=AC||new(window.
 const pop=()=>snd(500,.12,'sine',900),swoosh=()=>{snd(1200,.7,'sawtooth',200,.05);snd(300,.7,'sine',1500,.08)},chime=()=>[523,659,784,1046].forEach((f,i)=>snd(f,.25,'triangle',0,.12,i*.1)),flap=()=>snd(90,.05,'square',0,.02);
 $('mute').onclick=()=>{muted=!muted;$('mute').textContent=muted?'🔇':'🔊';sk++;speechSynthesis.cancel()};
 let VO=localStorage.hzv||'uk',VS=[];const loadV=()=>VS=speechSynthesis.getVoices();loadV();speechSynthesis.onvoiceschanged=loadV;
-const VN={uk:'British lady',deep:'Deep storyteller',country:'Country sweetheart'};
+const VN={uk:'British man',deep:'Deep storyteller',country:'Country sweetheart'};
 function pickV(){const f=(re,l)=>VS.find(v=>re.test(v.name)&&(!l||v.lang.replace('_','-').startsWith(l)))||VS.find(v=>l&&v.lang.replace('_','-').startsWith(l));
 if(VO=='uk')return{v:f(/Kate|Serena|Stephanie|Martha|Fiona/,'en-GB'),p:1.1,r:.92};
 if(VO=='deep')return{v:f(/Daniel|Arthur|Gordon|Aaron|Fred|Alex/,'en-GB')||f(/Aaron|Fred|Alex|Evan/,'en-US'),p:.55,r:.8};
